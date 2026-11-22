@@ -4,7 +4,7 @@ REG_BUS_VOLTAGE = 0x02
 REG_CURRENT = 0x04
 REG_CALIBRATION = 0x05
 
-SHUNT_OHMS = 0.1  # Resistor R100 na placa do INA219
+SHUNT_OHMS = 0.1  # Resistor R100 na placa do INA219[cite: 1]
 
 
 class INA219Reader:
@@ -39,3 +39,11 @@ class INA219Reader:
     def ler_corrente_ma(self):
         raw_curr = self._read_s16(REG_CURRENT)
         return (raw_curr * self.current_lsb) * 1000.0
+
+    def ler_potencia_w(self, tensao_v=None, corrente_ma=None):
+        if tensao_v is None:
+            tensao_v = self.ler_tensao_v()
+        if corrente_ma is None:
+            corrente_ma = self.ler_corrente_ma()
+        corrente_a = corrente_ma / 1000.0
+        return tensao_v * corrente_a
