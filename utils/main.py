@@ -35,3 +35,4 @@ class INA219:
         return self._read_register(0x04) * 0.1
 
     #Fim
+    
