@@ -33,3 +33,5 @@ class INA219:
     def corrente_ma(self):
         # Retorna a corrente em miliamperes (mA)
         return self._read_register(0x04) * 0.1
+
+    #Fim
