@@ -4,8 +4,8 @@ from machine import I2C, Pin
 from ina219_sensor import INA219_ADDR, INA219Reader
 
 # Configuracao de Wi-Fi (use rede 2,4 GHz) e fuso horario (Brasil -03:00 = -10800 s)
-WIFI_SSID = "SEU_WIFI"
-WIFI_SENHA = "SUA_SENHA"
+WIFI_SSID = "bruna"
+WIFI_SENHA = "22224444"
 FUSO_HORARIO_SEG = -3 * 3600
 
 
